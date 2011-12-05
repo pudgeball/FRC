@@ -31,8 +31,6 @@
 		DE72AF4F148BAC3100C22487 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF4E148BAC3100C22487 /* second@2x.png */; };
 		DE72AF52148BAC3100C22487 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF50148BAC3100C22487 /* FirstViewController.xib */; };
 		DE72AF55148BAC3100C22487 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF53148BAC3100C22487 /* SecondViewController.xib */; };
-		DEB025E5148CA8C000BF5657 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB025E3148CA8C000BF5657 /* Icon.png */; };
-		DEB025E6148CA8C000BF5657 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB025E4148CA8C000BF5657 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,8 +72,6 @@
 		DE72AF4E148BAC3100C22487 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
 		DE72AF51148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		DE72AF54148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
-		DEB025E3148CA8C000BF5657 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DEB025E4148CA8C000BF5657 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +146,6 @@
 		DE72AF21148BAC3000C22487 = {
 			isa = PBXGroup;
 			children = (
-				DEB025E3148CA8C000BF5657 /* Icon.png */,
-				DEB025E4148CA8C000BF5657 /* Icon@2x.png */,
 				DE72AF36148BAC3100C22487 /* FRC */,
 				DE72AF2F148BAC3100C22487 /* Frameworks */,
 				DE72AF2D148BAC3100C22487 /* Products */,
@@ -269,8 +263,6 @@
 				DE72AF4F148BAC3100C22487 /* second@2x.png in Resources */,
 				DE72AF52148BAC3100C22487 /* FirstViewController.xib in Resources */,
 				DE72AF55148BAC3100C22487 /* SecondViewController.xib in Resources */,
-				DEB025E5148CA8C000BF5657 /* Icon.png in Resources */,
-				DEB025E6148CA8C000BF5657 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
