@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Details" representedClassName="Details" syncable="YES">
+        <attribute name="hasAutonomous" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamDetails" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Match" representedClassName="Match" syncable="YES">
+        <attribute name="blueScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="matchNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="redScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="match" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Questions" syncable="YES">
+        <attribute name="autonomousRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamQuestions" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Rating" representedClassName="Rating" syncable="YES">
+        <attribute name="autonomousRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="team" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamRating" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName="Team">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="match" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" inverseName="teams" inverseEntity="Match" syncable="YES"/>
+        <relationship name="teamDetails" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Details" inverseName="team" inverseEntity="Details" syncable="YES"/>
+        <relationship name="teamQuestions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Questions" inverseName="team" inverseEntity="Questions" syncable="YES"/>
+        <relationship name="teamRating" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rating" inverseName="team" inverseEntity="Rating" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Details" positionX="-351" positionY="-171" width="128" height="75"/>
+        <element name="Match" positionX="-351" positionY="144" width="128" height="105"/>
+        <element name="Questions" positionX="-153" positionY="-18" width="128" height="75"/>
+        <element name="Rating" positionX="-540" positionY="-18" width="128" height="75"/>
+        <element name="Team" positionX="-353" positionY="-36" width="128" height="135"/>
+    </elements>
+</model>
