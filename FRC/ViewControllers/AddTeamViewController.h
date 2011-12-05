@@ -10,7 +10,8 @@
 
 @class Team, Details;
 
-@interface AddTeamViewController : UITableViewController <UITextFieldDelegate> {
+@interface AddTeamViewController : UITableViewController <UITextFieldDelegate>
+{
 	Team *newTeam;
 	Details *newTeamDetails;
 	NSMutableArray *currentObjects;

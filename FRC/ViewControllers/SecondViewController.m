@@ -18,7 +18,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+	{
 		self.title = NSLocalizedString(@"Second", @"Second");
     }
     return self;
@@ -71,11 +72,13 @@
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
 	static NSString *cellIdentifier = @"MyIdent";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-	if (cell == nil) {
+	if (cell == nil)
+	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
@@ -88,18 +91,14 @@
 	return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
 	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
 	return [sectionInfo numberOfObjects];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	/*
-	TeamDetailViewController *teamDetail = [[TeamDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
-	NMTeam *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	[teamDetail setTeam:team];
-	[[self navigationController] pushViewController:teamDetail animated:YES];*/
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -132,9 +131,8 @@
 - (NSFetchedResultsController *)fetchedResultsController
 {
 	
-    if (__fetchedResultsController != nil) {
+    if (__fetchedResultsController != nil)
         return __fetchedResultsController;
-    }
     
     // Set up the fetched results controller.
     // Create the fetch request for the entity.

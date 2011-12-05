@@ -23,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[TestFlight takeOff:@"nwPzqgtKs1JxhWQTCey0n3DacyUM8n42h8CxlZxADkg"];
+	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
 	// Override point for customization after application launch.	

@@ -14,15 +14,18 @@
 
 @synthesize delegate;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+    if (self) 
+	{
         // Initialization code
     }
     return self;
 }
 
-- (void)setUpTextFieldWithPlaceholder:(NSString *)placeholder AndTag:(NSInteger )tag {
+- (void)setUpTextFieldWithPlaceholder:(NSString *)placeholder AndTag:(NSInteger )tag
+{
 	textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 6, 280, 31)];
 	[textField setFont:[UIFont systemFontOfSize:14.0]];
 	[textField setClearButtonMode:UITextFieldViewModeWhileEditing];
@@ -37,7 +40,8 @@
 	[[self contentView] addSubview:textField];
 }
 
-- (void)setUpSegmentedControlWithTitles:(NSArray *)titles AndTag:(NSInteger)tag {	
+- (void)setUpSegmentedControlWithTitles:(NSArray *)titles AndTag:(NSInteger )tag
+{	
 	segControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(10, 7, 300, 30)];
 	[segControl setSegmentedControlStyle:UISegmentedControlStyleBar];
 	[segControl setSelectedSegmentIndex:1];
@@ -57,7 +61,9 @@
 	[[self contentView] addSubview:segControl];
 }
 
-- (void)setUpSwitchWithTag:(NSInteger )tag {
+
+- (void)setUpSwitchWithTag:(NSInteger )tag
+{
 	switchControl = [[UISwitch alloc] init];
 	[switchControl setFrame:CGRectMake(self.frame.size.width-(switchControl.frame.size.width*1.25), (self.frame.size.height-switchControl.frame.size.height)/2, 79, 27)];
 	[switchControl setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
@@ -69,28 +75,30 @@
 	[[self contentView] addSubview:switchControl];
 }
 
-- (NSObject *)getCurrentObject {
+- (NSObject *)getCurrentObject
+{
 	return currentObject;
 }
 
-- (void)segmentedControlUpdated:(id)sender {
+- (void)segmentedControlUpdated:(id)sender
+{
 	UISegmentedControl *seg = (UISegmentedControl *)sender;
 	[[self delegate] currentCellDidUpdate:[seg titleForSegmentAtIndex:[seg selectedSegmentIndex]]];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:NO];
 
     // Configure the view for the selected state
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
 }
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
 	//[super setEditing:editing animated:animated];
 	
 	NSLog(@"Cell: setEditing");
-	
-	[segControl setSelectedSegmentIndex:4];
 	
 	[[self contentView] setNeedsDisplay];
 }

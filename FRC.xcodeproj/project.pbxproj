@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE3966BE148C9B51009C1C6F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3966BC148C9B50009C1C6F /* libTestFlight.a */; };
 		DE3B1571148BBE430034B759 /* FRCDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE3B156F148BBE430034B759 /* FRCDataModel.xcdatamodeld */; };
 		DE3B1577148BBF590034B759 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B1576148BBF590034B759 /* CustomCell.m */; };
 		DE3B157A148BBF8E0034B759 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3B1579148BBF8E0034B759 /* CoreData.framework */; };
@@ -30,9 +31,13 @@
 		DE72AF4F148BAC3100C22487 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF4E148BAC3100C22487 /* second@2x.png */; };
 		DE72AF52148BAC3100C22487 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF50148BAC3100C22487 /* FirstViewController.xib */; };
 		DE72AF55148BAC3100C22487 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF53148BAC3100C22487 /* SecondViewController.xib */; };
+		DEB025E5148CA8C000BF5657 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB025E3148CA8C000BF5657 /* Icon.png */; };
+		DEB025E6148CA8C000BF5657 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB025E4148CA8C000BF5657 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE3966BC148C9B50009C1C6F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = SDKs/libTestFlight.a; sourceTree = "<group>"; };
+		DE3966BD148C9B51009C1C6F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = SDKs/TestFlight.h; sourceTree = "<group>"; };
 		DE3B1570148BBE430034B759 /* FRCDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FRCDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DE3B1575148BBF590034B759 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Custom/CustomCell.h; sourceTree = "<group>"; };
 		DE3B1576148BBF590034B759 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Custom/CustomCell.m; sourceTree = "<group>"; };
@@ -69,6 +74,8 @@
 		DE72AF4E148BAC3100C22487 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
 		DE72AF51148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		DE72AF54148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		DEB025E3148CA8C000BF5657 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DEB025E4148CA8C000BF5657 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +87,22 @@
 				DE72AF31148BAC3100C22487 /* UIKit.framework in Frameworks */,
 				DE72AF33148BAC3100C22487 /* Foundation.framework in Frameworks */,
 				DE72AF35148BAC3100C22487 /* CoreGraphics.framework in Frameworks */,
+				DE3966BE148C9B51009C1C6F /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE3966BF148C9B55009C1C6F /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				DE3966BC148C9B50009C1C6F /* libTestFlight.a */,
+				DE3966BD148C9B51009C1C6F /* TestFlight.h */,
+			);
+			name = TestFlight;
+			sourceTree = "<group>";
+		};
 		DE3B1573148BBE560034B759 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +150,8 @@
 		DE72AF21148BAC3000C22487 = {
 			isa = PBXGroup;
 			children = (
+				DEB025E3148CA8C000BF5657 /* Icon.png */,
+				DEB025E4148CA8C000BF5657 /* Icon@2x.png */,
 				DE72AF36148BAC3100C22487 /* FRC */,
 				DE72AF2F148BAC3100C22487 /* Frameworks */,
 				DE72AF2D148BAC3100C22487 /* Products */,
@@ -161,8 +180,9 @@
 		DE72AF36148BAC3100C22487 /* FRC */ = {
 			isa = PBXGroup;
 			children = (
-				DE3B1584148BC0460034B759 /* Model */,
+				DE3966BF148C9B55009C1C6F /* TestFlight */,
 				DE3B1578148BBF5D0034B759 /* Custom */,
+				DE3B1584148BC0460034B759 /* Model */,
 				DE72AF3F148BAC3100C22487 /* AppDelegate.h */,
 				DE72AF40148BAC3100C22487 /* AppDelegate.m */,
 				DE72AF42148BAC3100C22487 /* FirstViewController.h */,
@@ -249,6 +269,8 @@
 				DE72AF4F148BAC3100C22487 /* second@2x.png in Resources */,
 				DE72AF52148BAC3100C22487 /* FirstViewController.xib in Resources */,
 				DE72AF55148BAC3100C22487 /* SecondViewController.xib in Resources */,
+				DEB025E5148CA8C000BF5657 /* Icon.png in Resources */,
+				DEB025E6148CA8C000BF5657 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +332,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: R Breton McGuire (BWHNWVJU9A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -325,6 +348,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "7D0C310C-696E-4E72-8FCE-CEA44B3BB536";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -335,6 +359,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: R Breton McGuire (BWHNWVJU9A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -344,6 +369,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "7D0C310C-696E-4E72-8FCE-CEA44B3BB536";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -355,6 +381,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FRC/FRC-Prefix.pch";
 				INFOPLIST_FILE = "FRC/FRC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FRC/SDKs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -366,6 +397,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FRC/FRC-Prefix.pch";
 				INFOPLIST_FILE = "FRC/FRC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FRC/SDKs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

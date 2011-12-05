@@ -22,7 +22,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+	{
 		[self setTitle:@"Teams"];
     }
     return self;
@@ -46,60 +47,26 @@
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.navigationItem.leftBarButtonItem = refreshButton;
 	
-	BOOL yeahyeah = NO;
-	Team *newTeam;
+	BOOL test = NO;
 	
-	if (yeahyeah) {
-		newTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:[self managedObjectContext]];
+	
+	if (test) 
+	{
+		Team *newTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:[self managedObjectContext]];
 		Team *newTeamTwo = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:[self managedObjectContext]];
 		Match *newMatch = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:[self managedObjectContext]];
 	
 		newTeam.name = @"testTeam";
 		newTeam.number = [NSNumber numberWithInt:1334];
+		
+		newTeamTwo.name = @"testTeamTwo";
+		newTeamTwo.number = [NSNumber numberWithInt:4321];
 	
 		newMatch.teams = [NSSet setWithObjects:newTeam, newTeamTwo, nil];
 	
 		NSError *error;
-		if (![[self managedObjectContext] save:&error]) {
+		if (![[self managedObjectContext] save:&error])
 			NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-		}
-	}
-	/*
-	 NSManagedObjectContext *context = [restaurant managedObjectContext];
-	 
-	 
-	 NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	 [fetchRequest setEntity:[NSEntityDescription entityForName:@"Category" inManagedObjectContext:context]];
-	 NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-	 NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:&sortDescriptor count:1];
-	 [fetchRequest setSortDescriptors:sortDescriptors];
-	 
-	 NSError *error = nil;
-	 NSArray *possibleCategories = [context executeFetchRequest:fetchRequest error:&error];
-	 
-	 categoryArray = [[NSMutableArray alloc] initWithArray:possibleCategories];
-	 
-	 currentCategories = [restaurant valueForKeyPath:@"categories"];
-	 
-	 [restaurant addCategoriesObject:(Category *)[possibleCategories objectAtIndex:15 ]];
-	 
-	 [currentCategories addObject:(Category*)[categoryArray objectAtIndex:15]];
-	 
-	 */
-	
-	//NSManagedObjectContext *context = [newTeam managedObjectContext];
-	
-	
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	[fetchRequest setEntity:[NSEntityDescription entityForName:@"Match" inManagedObjectContext:[self managedObjectContext]]];
-	
-	NSError *errorOut = nil;
-	NSArray *possibleCategories = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&errorOut];
-	
-	if ([possibleCategories count] > 0) {
-		Match *testIdea = [possibleCategories objectAtIndex:0];
-	
-		NSLog(@"possible: %@", testIdea.blueScore);
 	}
 }
 
@@ -113,7 +80,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-	[[self tableView] reloadData];
+	//[[self tableView] reloadData];
+	
+	[TestFlight passCheckpoint:@"First Tab Opened"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -137,45 +106,47 @@
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)addTeam {
+- (void)addTeam
+{
 	AddTeamViewController *addTeamVC = [[AddTeamViewController alloc] initWithStyle:UITableViewStyleGrouped];
 	[addTeamVC setManagedObjectContext:[self managedObjectContext]];
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addTeamVC];
 	[[self navigationController] presentModalViewController:navController animated:YES];
 }
 
-- (void)refresh {
+- (void)refresh
+{
 	[[self tableView] reloadData];
 }
 
 #pragma mark - UITableViewDataSource
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    Team *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	NSLog(@"TeamName: %@", team.name);
+	[[cell textLabel] setText:[team name]];
+	[[cell detailTextLabel] setText:[[team number] stringValue]];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
 	static NSString *cellIdentifier = @"MyIdent";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-	if (cell == nil) {
+	if (cell == nil)
+	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
 	
-	Team *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	
-	[[cell textLabel] setText:[team name]];
-	[[cell detailTextLabel] setText:[[team number] stringValue]];
+	[self configureCell:cell atIndexPath:indexPath];
 	
 	return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    Team *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	
-	[[cell textLabel] setText:[team name]];
-	[[cell detailTextLabel] setText:[[team number] stringValue]];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
 	return [sectionInfo numberOfObjects];
 }
@@ -183,8 +154,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	TeamDetailViewController *teamDetail = [[TeamDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
-	 Team *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	[teamDetail setTeam:team];
+	[teamDetail setTeam:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
 	[[self navigationController] pushViewController:teamDetail animated:YES];
 }
 
@@ -199,7 +169,8 @@
 {
     UITableView *tableView = self.tableView;
     
-    switch(type) {
+    switch(type)
+	{
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
@@ -217,9 +188,8 @@
 - (NSFetchedResultsController *)fetchedResultsController
 {
 	
-    if (__fetchedResultsController != nil) {
+    if (__fetchedResultsController != nil)
         return __fetchedResultsController;
-    }
     
     // Set up the fetched results controller.
     // Create the fetch request for the entity.
@@ -244,7 +214,8 @@
     self.fetchedResultsController = aFetchedResultsController;
     
 	NSError *error = nil;
-	if (![[self fetchedResultsController] performFetch:&error]) {
+	if (![[self fetchedResultsController] performFetch:&error])
+	{
 	    /*
 	     Replace this implementation with code to handle the error appropriately.
 		 

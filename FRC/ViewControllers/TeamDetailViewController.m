@@ -17,7 +17,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+	{
         // Custom initialization
     }
     return self;
@@ -31,7 +32,8 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)currentCellDidUpdate:(NSString *)data {
+- (void)currentCellDidUpdate:(NSString *)data
+{
 	NSLog(@"%@", data);
 }
 
@@ -96,7 +98,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    switch (section) {
+    switch (section)
+	{
 		case 0:
 			return 2;
 			break;
@@ -114,21 +117,24 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 		cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+	
+
 	
 	CustomCell *customCell = [[CustomCell alloc] init];
 	[customCell setDelegate:self];
     
     // Configure the cell...
 	
-	NSLog(@"working");
-	
-	switch (indexPath.section) {
+	switch (indexPath.section)
+	{
 		case 0:
-			switch (indexPath.row) {
+			switch (indexPath.row)
+			{
 				case 0:
 					[[cell textLabel] setText:[team name]];
 					[[cell detailTextLabel] setText:@"Name"];
@@ -140,7 +146,8 @@
 			}
 			break;
 		case 1:
-			switch (indexPath.row) {
+			switch (indexPath.row)
+			{
 				case 0:
 					[customCell setUpSegmentedControlWithTitles:numbers AndTag:0];
 					customCell.segControl.selectedSegmentIndex = 0;

@@ -18,7 +18,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+	{
         // Custom initialization
 		currentObjects = [[NSMutableArray alloc] init];
     }
@@ -91,29 +92,35 @@
 
 #pragma mark - User Methods
 
-- (void)collectData {
-	for (id object in currentObjects) {
-		if ([object isKindOfClass:[UISwitch class]]) {
-			if ([object tag] == 2) {
+- (void)collectData
+{
+	for (id object in currentObjects)
+	{
+		if ([object isKindOfClass:[UISwitch class]])
+		{
+			if ([object tag] == 2)
+			{
 				[newTeamDetails setHasAutonomous:[NSNumber numberWithInt:[object isOn]?1:0]];
 			}
-		} else if ([object isKindOfClass:[UITextField class]]) {
+		} else if ([object isKindOfClass:[UITextField class]])
+		{
 			[self textFieldShouldReturn:object];
 		}
 	}
 }
 
-- (void)closeWindow {
+- (void)closeWindow
+{
 	[[self navigationController] dismissModalViewControllerAnimated:YES];
 }
 
-- (void)doneAdd {
+- (void)doneAdd
+{
 	[self collectData];
 	
 	NSError *error;
-	if (![[self managedObjectContext] save:&error]) {
+	if (![[self managedObjectContext] save:&error])
 		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-	}
 	
 	[self closeWindow];
 }
@@ -129,7 +136,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-	switch (section) {
+	switch (section)
+	{
 		case 0:
 			return 2;
 			break;
@@ -146,9 +154,11 @@
 {
 	CustomCell *cell = [[CustomCell alloc] init];
 	
-	switch (indexPath.section) {
+	switch (indexPath.section)
+	{
 		case 0:
-			switch (indexPath.row) {
+			switch (indexPath.row)
+			{
 				case 0:
 					[cell setUpTextFieldWithPlaceholder:@"Name" AndTag:0];
 					break;
@@ -158,7 +168,8 @@
 			}
 			break;
 		case 1:
-			switch (indexPath.row) {
+			switch (indexPath.row)
+			{
 				case 0:
 					[cell setUpSwitchWithTag:2];
 					break;
@@ -210,8 +221,10 @@
 }
 */
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	switch (section) {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	switch (section)
+	{
 		case 0:
 			return @"Team Info";
 			break;
@@ -219,7 +232,7 @@
 			return @"Team Details";
 			break;
 		default:
-			return @"What in the cunt?";
+			return @"err";
 			break;
 	}
 }
@@ -239,12 +252,15 @@
 
 #pragma mark - UITextFieldDelegate
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
 	
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	switch ([textField tag]) {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	switch ([textField tag])
+	{
 		case 0:
 			[newTeam setName:[textField text]];
 			NSLog(@"%@", [textField text]);
@@ -254,7 +270,7 @@
 			NSLog(@"%@", [newTeam number]);
 			break;
 		default:
-			NSLog(@"HOLY MOTHER FUCKER, WHAT DID YOU DO?");
+			NSLog(@"err");
 			break;
 	}
 	
