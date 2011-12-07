@@ -3,7 +3,7 @@
 //  FRC
 //
 //  Created by Nick McGuire on 11-12-04.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

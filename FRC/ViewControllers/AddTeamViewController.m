@@ -3,7 +3,7 @@
 //  FRC
 //
 //  Created by Nick McGuire on 11-10-20.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
 #import "AddTeamViewController.h"
@@ -46,6 +46,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
+	[[self navigationItem] setTitle:@"Add Team"];
+	
 	newTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:[self managedObjectContext]];
 	newTeamDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details" inManagedObjectContext:[self managedObjectContext]];
 	[newTeamDetails setTeam:newTeam];
@@ -63,26 +65,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -94,6 +76,8 @@
 
 - (void)collectData
 {
+	NSLog(@"Oh dear: %d", [currentObjects count]);
+	
 	for (id object in currentObjects)
 	{
 		if ([object isKindOfClass:[UISwitch class]])
@@ -152,7 +136,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	CustomCell *cell = [[CustomCell alloc] init];
+	CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdent"];
+	
+	if (cell == nil)
+	{
+		cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyIdent"];
+	
 	
 	switch (indexPath.section)
 	{
@@ -177,8 +166,9 @@
 			break;
 	}
     
-	[[cell textField] setDelegate:self];
+	[[cell cellTextField] setDelegate:self];
 	[currentObjects addObject:[cell getCurrentObject]];
+	}
     return cell;
 }
 

@@ -38,7 +38,7 @@
 		DE3966BD148C9B51009C1C6F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = SDKs/TestFlight.h; sourceTree = "<group>"; };
 		DE3B1570148BBE430034B759 /* FRCDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FRCDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DE3B1575148BBF590034B759 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Custom/CustomCell.h; sourceTree = "<group>"; };
-		DE3B1576148BBF590034B759 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Custom/CustomCell.m; sourceTree = "<group>"; };
+		DE3B1576148BBF590034B759 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Custom/CustomCell.m; sourceTree = "<group>"; wrapsLines = 0; };
 		DE3B1579148BBF8E0034B759 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DE3B157B148BC03F0034B759 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Model/Match.h; sourceTree = "<group>"; };
 		DE3B157C148BC03F0034B759 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Model/Match.m; sourceTree = "<group>"; };
@@ -48,8 +48,8 @@
 		DE3B1582148BC0400034B759 /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Details.m; path = Model/Details.m; sourceTree = "<group>"; };
 		DE3B1585148BC0900034B759 /* Rating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rating.h; sourceTree = "<group>"; };
 		DE3B1586148BC0900034B759 /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rating.m; sourceTree = "<group>"; };
-		DE3B1588148BC18D0034B759 /* AddTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTeamViewController.h; path = ViewControllers/AddTeamViewController.h; sourceTree = "<group>"; };
-		DE3B1589148BC18D0034B759 /* AddTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTeamViewController.m; path = ViewControllers/AddTeamViewController.m; sourceTree = "<group>"; };
+		DE3B1588148BC18D0034B759 /* AddTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AddTeamViewController.h; path = ViewControllers/AddTeamViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DE3B1589148BC18D0034B759 /* AddTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AddTeamViewController.m; path = ViewControllers/AddTeamViewController.m; sourceTree = "<group>"; wrapsLines = 0; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		DE3B158A148BC18D0034B759 /* TeamDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeamDetailViewController.h; path = ViewControllers/TeamDetailViewController.h; sourceTree = "<group>"; };
 		DE3B158B148BC18D0034B759 /* TeamDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeamDetailViewController.m; path = ViewControllers/TeamDetailViewController.m; sourceTree = "<group>"; };
 		DE72AF2C148BAC3100C22487 /* FRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +63,7 @@
 		DE72AF3F148BAC3100C22487 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Other/AppDelegate.h; sourceTree = "<group>"; };
 		DE72AF40148BAC3100C22487 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Other/AppDelegate.m; sourceTree = "<group>"; };
 		DE72AF42148BAC3100C22487 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = ViewControllers/FirstViewController.h; sourceTree = "<group>"; };
-		DE72AF43148BAC3100C22487 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = ViewControllers/FirstViewController.m; sourceTree = "<group>"; };
+		DE72AF43148BAC3100C22487 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = ViewControllers/FirstViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		DE72AF45148BAC3100C22487 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = Images/first.png; sourceTree = "<group>"; };
 		DE72AF47148BAC3100C22487 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Images/first@2x.png"; sourceTree = "<group>"; };
 		DE72AF49148BAC3100C22487 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ViewControllers/SecondViewController.h; sourceTree = "<group>"; };

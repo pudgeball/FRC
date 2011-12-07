@@ -3,7 +3,7 @@
 //  FRC
 //
 //  Created by Nick McGuire on 11-10-17.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>

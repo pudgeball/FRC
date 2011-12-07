@@ -3,7 +3,7 @@
 //  FRC
 //
 //  Created by Nick McGuire on 11-10-25.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
 #import "TeamDetailViewController.h"
@@ -34,7 +34,7 @@
 
 - (void)currentCellDidUpdate:(NSString *)data
 {
-	NSLog(@"%@", data);
+	NSLog(@"Receieved Data: %@", data);
 }
 
 #pragma mark - View lifecycle
@@ -115,19 +115,38 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+	static NSString *CustomIdent = @"Custom";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	CustomCell *customCell = [tableView dequeueReusableCellWithIdentifier:CustomIdent];
+	
     if (cell == nil)
 	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 		cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 	
-
+	if (customCell == nil)
+	{
+		customCell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CustomIdent];
+		[customCell setDelegate:self];
+		
+		switch (indexPath.section)
+		{
+			case 0:
+				break;
+			case 1:
+				switch (indexPath.row)
+				{
+					case 0:
+						[customCell setUpSegmentedControlWithTitles:numbers AndTag:0];
+						customCell.cellSegControl.selectedSegmentIndex = 0;
+						break;
+				}
+				break;
+		}
+	}
 	
-	CustomCell *customCell = [[CustomCell alloc] init];
-	[customCell setDelegate:self];
-    
     // Configure the cell...
 	
 	switch (indexPath.section)
@@ -146,14 +165,7 @@
 			}
 			break;
 		case 1:
-			switch (indexPath.row)
-			{
-				case 0:
-					[customCell setUpSegmentedControlWithTitles:numbers AndTag:0];
-					customCell.segControl.selectedSegmentIndex = 0;
-					return customCell;
-					break;
-			}
+			return customCell;
 			break;
 	}
 	

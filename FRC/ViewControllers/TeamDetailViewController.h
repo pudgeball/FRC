@@ -3,7 +3,7 @@
 //  FRC
 //
 //  Created by Nick McGuire on 11-10-25.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -3,7 +3,7 @@
 //  FRCTracker
 //
 //  Created by Nick McGuire on 11-02-08.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 RND Consulting. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,19 +16,19 @@
 @end
 
 
-@interface CustomCell : UITableViewCell {
-    UISegmentedControl *segControl;
-    UITextField *textField;
-	UISwitch *switchControl;
+@interface CustomCell : UITableViewCell <UITextFieldDelegate> {
+    UISegmentedControl *cellSegControl;
+    UITextField *cellTextField;
+	UISwitch *cellSwitchControl;
 	
 	NSObject *currentObject;
 	
 	id <NMCustomCell> delegate;
 }
 
-@property (nonatomic, retain) UISegmentedControl *segControl;
-@property (nonatomic, retain) UITextField *textField;
-@property (nonatomic, retain) UISwitch *switchControl;
+@property (nonatomic, retain) UISegmentedControl *cellSegControl;
+@property (nonatomic, retain) UITextField *cellTextField;
+@property (nonatomic, retain) UISwitch *cellSwitchControl;
 
 @property (nonatomic, retain) id delegate;
 

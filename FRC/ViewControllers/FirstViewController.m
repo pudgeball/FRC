@@ -3,7 +3,7 @@
 //  FRC
 //
 //  Created by Nick McGuire on 11-10-17
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
 #import "FirstViewController.h"
@@ -82,7 +82,7 @@
     [super viewWillAppear:animated];
 	//[[self tableView] reloadData];
 	
-	[TestFlight passCheckpoint:@"First Tab Opened"];
+	//[TestFlight passCheckpoint:@"First Tab Opened"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -175,7 +175,8 @@
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
 		case NSFetchedResultsChangeUpdate:
-			[self configureCell:[[self tableView] cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+			NSLog(@"Update Called");
+			[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
     }
 }
