@@ -11,6 +11,8 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 
+#define BETA_TESTING NO
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = __managedObjectContext, 
@@ -23,11 +25,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[TestFlight takeOff:@"nwPzqgtKs1JxhWQTCey0n3DacyUM8n42h8CxlZxADkg"];
+	if (BETA_TESTING)
+		[TestFlight takeOff:@"nwPzqgtKs1JxhWQTCey0n3DacyUM8n42h8CxlZxADkg"];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-	// Override point for customization after application launch.	
+	// Override point for customization after application launch.
 	FirstViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
 	viewController1.managedObjectContext = [self managedObjectContext];
 	
@@ -209,5 +212,10 @@
 {
 }
 */
+
+- (NSManagedObjectContext *)currentObjectContext
+{
+	return [self managedObjectContext];
+}
 
 @end

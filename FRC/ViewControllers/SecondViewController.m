@@ -7,8 +7,13 @@
 //
 
 #import "SecondViewController.h"
+#import "AddMatchViewController.h"
 
 #import "Match.h"
+
+@interface SecondViewController()
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@end
 
 @implementation SecondViewController
 
@@ -37,6 +42,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                               target:self 
+                                                                               action:@selector(addMatch)];
+	
+	self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)viewDidUnload
@@ -70,6 +80,14 @@
 {
     // Return YES for supported orientations
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)addMatch
+{
+	AddMatchViewController *addMatch = [[AddMatchViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	[addMatch setManagedObjectContext:[self managedObjectContext]];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addMatch];
+	[[self navigationController] presentModalViewController:navController animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,7 +136,8 @@
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
 		case NSFetchedResultsChangeUpdate:
-			//[self configureCell:[[self tableView] cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+			NSLog(@"Update:");
+			[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
     }
 }
@@ -126,6 +145,13 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
 	[[self tableView] endUpdates];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    Match *match = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	NSLog(@"MatchNumber: %@", match.matchNumber);
+	[[cell textLabel] setText:[[match matchNumber] stringValue]];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

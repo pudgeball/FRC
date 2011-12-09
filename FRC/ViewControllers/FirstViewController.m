@@ -14,6 +14,10 @@
 #import "Details.h"
 #import "Match.h"
 
+@interface FirstViewController ()
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@end
+
 @implementation FirstViewController
 
 @synthesize fetchedResultsController = __fetchedResultsController,
@@ -41,15 +45,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTeam)];
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+                                                                                   target:self 
+                                                                                   action:@selector(refresh)];
+    
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                               target:self 
+                                                                               action:@selector(addTeam)];
 	
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.navigationItem.leftBarButtonItem = refreshButton;
 	
 	BOOL test = NO;
-	
-	
+    
 	if (test) 
 	{
 		Team *newTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:[self managedObjectContext]];
@@ -121,14 +129,6 @@
 
 #pragma mark - UITableViewDataSource
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    Team *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	NSLog(@"TeamName: %@", team.name);
-	[[cell textLabel] setText:[team name]];
-	[[cell detailTextLabel] setText:[[team number] stringValue]];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *cellIdentifier = @"MyIdent";
@@ -186,6 +186,16 @@
 	[[self tableView] endUpdates];
 }
 
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    Team *team = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	NSLog(@"TeamName: %@", team.name);
+	[[cell textLabel] setText:[team name]];
+	[[cell detailTextLabel] setText:[[team number] stringValue]];
+}
+
+#pragma mark - Core Data
+
 - (NSFetchedResultsController *)fetchedResultsController
 {
 	
@@ -210,7 +220,9 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                                                                                managedObjectContext:[self managedObjectContext] 
+                                                                                                  sectionNameKeyPath:nil cacheName:@"Master"];
     [aFetchedResultsController setDelegate:self];
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -220,7 +232,8 @@
 	    /*
 	     Replace this implementation with code to handle the error appropriately.
 		 
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+	     abort() causes the application to generate a crash log and terminate. 
+            You should not use this function in a shipping application, although it may be useful during development. 
 	     */
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();

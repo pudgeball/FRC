@@ -32,7 +32,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)currentCellDidUpdate:(NSString *)data
+- (void)currentCellDidUpdate:(NSString *)data withTag:(NSInteger)tag
 {
 	NSLog(@"Receieved Data: %@", data);
 }

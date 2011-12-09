@@ -87,12 +87,12 @@
 - (void)segmentedControlUpdated:(id)sender
 {
 	UISegmentedControl *seg = (UISegmentedControl *)sender;
-	[[self delegate] currentCellDidUpdate:[seg titleForSegmentAtIndex:[seg selectedSegmentIndex]]];
+	[[self delegate] currentCellDidUpdate:[seg titleForSegmentAtIndex:[seg selectedSegmentIndex]] withTag:[seg tag]];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	[[self delegate] currentCellDidUpdate:[textField text]];
+	[[self delegate] currentCellDidUpdate:[textField text] withTag:[textField tag]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

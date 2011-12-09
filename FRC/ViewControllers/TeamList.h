@@ -1,12 +1,17 @@
 //
-//  FirstViewController.h
+//  TeamList.h
 //  FRC
 //
-//  Created by Nick McGuire on 11-10-17.
+//  Created by Nick McGuire on 11-12-08.
 //  Copyright (c) 2011 RND Consulting. All rights reserved.
 //
 
-@interface FirstViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+#import <UIKit/UIKit.h>
+
+@interface TeamList : UITableViewController <NSFetchedResultsControllerDelegate>
+{
+	int numSelected;
+}
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

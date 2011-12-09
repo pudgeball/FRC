@@ -11,8 +11,7 @@
 @protocol NMCustomCell <NSObject>
 
 @optional
-- (void)currentCellDidUpdate:(NSString *)data;
-
+- (void)currentCellDidUpdate:(NSString *)data withTag:(NSInteger )tag;
 @end
 
 
