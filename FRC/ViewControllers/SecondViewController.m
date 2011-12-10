@@ -25,7 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
 	{
-		self.title = NSLocalizedString(@"Second", @"Second");
+		self.title = @"Matches";
     }
     return self;
 }
@@ -64,6 +64,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+	
+	//[TestFlight passCheckpoint:@"First Tab Opened"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -101,10 +103,10 @@
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
 	
-	Match *match = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	//Match *match = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	//[[cell textLabel] setText:[NSString stringWithFormat:@"Match %@", [[match matchNumber] stringValue]]];
 	
-	[[cell textLabel] setText:[NSString stringWithFormat:@"Match %@", [[match matchNumber] stringValue]]];
-	//[[cell detailTextLabel] setText:[[team number] stringValue]];
+	[self configureCell:cell atIndexPath:indexPath];
 	
 	return cell;
 }
@@ -151,7 +153,7 @@
 {
     Match *match = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 	NSLog(@"MatchNumber: %@", match.matchNumber);
-	[[cell textLabel] setText:[[match matchNumber] stringValue]];
+	[[cell textLabel] setText:[NSString stringWithFormat:@"Match %@", [[match matchNumber] stringValue]]];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CustomCell.h"
 
-@class Match;
+@class Match, TeamList;
 
 @interface AddMatchViewController : UITableViewController <NMCustomCell>
 {
 	Match *newMatch;
+	TeamList *redTeamList;
+	TeamList *blueTeamList;
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

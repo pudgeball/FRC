@@ -11,7 +11,12 @@
 @interface TeamList : UITableViewController <NSFetchedResultsControllerDelegate>
 {
 	int numSelected;
+	BOOL hasFinished;
+	
+	NSMutableArray *selectedTeams;
 }
+
+@property (nonatomic) BOOL hasFinished;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

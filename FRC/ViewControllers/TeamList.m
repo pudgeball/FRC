@@ -16,6 +16,8 @@
 @synthesize fetchedResultsController = __fetchedResultsController,
 				managedObjectContext = __managedObjectContext;
 
+@synthesize hasFinished;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -23,6 +25,9 @@
 	{
         // Custom initialization
 		numSelected = 0;
+		hasFinished = NO;
+		selectedTeams = [[NSMutableArray alloc] init];
+		[[self navigationItem] setTitle:@"Teams"];
     }
     return self;
 }
@@ -68,6 +73,9 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+	
+	if ([selectedTeams count] == 3)
+		hasFinished = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -113,50 +121,12 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	Team *selectedTeam = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 	
 	if (numSelected < 3)
 	{
@@ -164,13 +134,26 @@
 		{
 			[cell setAccessoryType:UITableViewCellAccessoryCheckmark];
 			numSelected++;
+			[selectedTeams addObject:selectedTeam];
 		} 
 		else
 		{
 			[cell setAccessoryType:UITableViewCellAccessoryNone];
 			numSelected--;
+			[selectedTeams removeObject:selectedTeam];
 		}
 	}
+	else
+	{
+		if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
+		{
+			[cell setAccessoryType:UITableViewCellAccessoryNone];
+			numSelected--;
+			[selectedTeams removeObject:selectedTeam];
+		}
+	}
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

@@ -56,6 +56,8 @@
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.navigationItem.leftBarButtonItem = refreshButton;
 	
+	[[self fetchedResultsController] setDelegate:self];
+	
 	BOOL test = NO;
     
 	if (test) 
@@ -89,8 +91,6 @@
 {
     [super viewWillAppear:animated];
 	//[[self tableView] reloadData];
-	
-	//[TestFlight passCheckpoint:@"First Tab Opened"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -172,6 +172,7 @@
     switch(type)
 	{
         case NSFetchedResultsChangeInsert:
+			NSLog(@"Insert Called");
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
 		case NSFetchedResultsChangeUpdate:

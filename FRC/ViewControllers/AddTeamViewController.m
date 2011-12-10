@@ -49,11 +49,16 @@
 	[[self navigationItem] setTitle:@"Add Team"];
 	
 	newTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:[self managedObjectContext]];
-	newTeamDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details" inManagedObjectContext:[self managedObjectContext]];
-	[newTeamDetails setTeam:newTeam];
+	//newTeamDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details" inManagedObjectContext:[self managedObjectContext]];
+	//[newTeamDetails setTeam:newTeam];
 	
-	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAdd)];
-	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeWindow)];
+	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+																				target:self
+																				action:@selector(doneAdd)];
+	
+	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+																				  target:self
+																				  action:@selector(closeWindow)];
 	[[self navigationItem] setRightBarButtonItem:doneButton];
 	[[self navigationItem] setLeftBarButtonItem:cancelButton];
 }
@@ -84,9 +89,10 @@
 		{
 			if ([object tag] == 2)
 			{
-				[newTeamDetails setHasAutonomous:[NSNumber numberWithInt:[object isOn]?1:0]];
+				//[newTeamDetails setHasAutonomous:[NSNumber numberWithInt:[object isOn]?1:0]];
 			}
-		} else if ([object isKindOfClass:[UITextField class]])
+		}
+		else if ([object isKindOfClass:[UITextField class]])
 		{
 			[self textFieldShouldReturn:object];
 		}
@@ -141,34 +147,34 @@
 	if (cell == nil)
 	{
 		cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyIdent"];
-	
-	
-	switch (indexPath.section)
-	{
-		case 0:
-			switch (indexPath.row)
-			{
-				case 0:
-					[cell setUpTextFieldWithPlaceholder:@"Name" AndTag:0];
-					break;
-				case 1:
-					[cell setUpTextFieldWithPlaceholder:@"Number" AndTag:1];
-					break;
-			}
-			break;
-		case 1:
-			switch (indexPath.row)
-			{
-				case 0:
-					[cell setUpSwitchWithTag:2];
-					break;
-			}
-			break;
-	}
+		
+		switch (indexPath.section)
+		{
+			case 0:
+				switch (indexPath.row)
+				{
+					case 0:
+						[cell setUpTextFieldWithPlaceholder:@"Name" AndTag:0];
+						break;
+					case 1:
+						[cell setUpTextFieldWithPlaceholder:@"Number" AndTag:1];
+						break;
+				}
+				break;
+			case 1:
+				switch (indexPath.row)
+				{
+					case 0:
+						[cell setUpSwitchWithTag:2];
+						break;
+				}
+				break;
+		}
     
-	[[cell cellTextField] setDelegate:self];
-	[currentObjects addObject:[cell getCurrentObject]];
+		[[cell cellTextField] setDelegate:self];
+		[currentObjects addObject:[cell getCurrentObject]];
 	}
+	
     return cell;
 }
 

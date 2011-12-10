@@ -32,6 +32,7 @@
 		DE72AF4F148BAC3100C22487 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF4E148BAC3100C22487 /* second@2x.png */; };
 		DE72AF52148BAC3100C22487 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF50148BAC3100C22487 /* FirstViewController.xib */; };
 		DE72AF55148BAC3100C22487 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF53148BAC3100C22487 /* SecondViewController.xib */; };
+		DE8C258D1493EE87004CA365 /* MatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */; };
 		DEE0548F148F944A0069C5A3 /* AddMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE0548E148F944A0069C5A3 /* AddMatchViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		DE72AF4E148BAC3100C22487 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
 		DE72AF51148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		DE72AF54148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		DE8C258B1493EE87004CA365 /* MatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchDetailViewController.h; path = ViewControllers/MatchDetailViewController.h; sourceTree = "<group>"; };
+		DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchDetailViewController.m; path = ViewControllers/MatchDetailViewController.m; sourceTree = "<group>"; };
 		DEE0548D148F944A0069C5A3 /* AddMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddMatchViewController.h; path = ViewControllers/AddMatchViewController.h; sourceTree = "<group>"; };
 		DEE0548E148F944A0069C5A3 /* AddMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddMatchViewController.m; path = ViewControllers/AddMatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +200,8 @@
 				DEE0548E148F944A0069C5A3 /* AddMatchViewController.m */,
 				DE67064A1490FA45008BE3F4 /* TeamList.h */,
 				DE67064B1490FA45008BE3F4 /* TeamList.m */,
+				DE8C258B1493EE87004CA365 /* MatchDetailViewController.h */,
+				DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */,
 				DE72AF37148BAC3100C22487 /* Supporting Files */,
 			);
 			path = FRC;
@@ -297,6 +302,7 @@
 				DE3B158D148BC18D0034B759 /* TeamDetailViewController.m in Sources */,
 				DEE0548F148F944A0069C5A3 /* AddMatchViewController.m in Sources */,
 				DE67064C1490FA45008BE3F4 /* TeamList.m in Sources */,
+				DE8C258D1493EE87004CA365 /* MatchDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
