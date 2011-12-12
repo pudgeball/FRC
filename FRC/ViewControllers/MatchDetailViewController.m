@@ -8,8 +8,13 @@
 
 #import "MatchDetailViewController.h"
 
+#import "Team.h"
+#import "Match.h"
+
 
 @implementation MatchDetailViewController
+
+@synthesize match;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,6 +44,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	[[self navigationItem] setTitle:[NSString stringWithFormat:@"Match %@", [match matchNumber]]];
 }
 
 - (void)viewDidUnload
@@ -51,6 +58,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+	
+	teamsInMatch = [[NSArray alloc] initWithArray:[match teams].allObjects];
+	NSLog(@"Teams In Match: %@", teamsInMatch);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -78,16 +88,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    switch (section)
+	{
+		case 0:
+			return 3;
+			break;
+		case 1:
+			return [teamsInMatch count];
+			break;
+		default:
+			return 0;
+			break;
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,12 +115,59 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
+	
+	NSString *mainText;
+	NSString *subText;
+	Team *team;
+	
+	switch ([indexPath section])
+	{
+		case 0:
+			switch ([indexPath row])
+			{
+				case 0:
+					mainText = [NSString stringWithFormat:@"Match %@", [match matchNumber]];
+					subText = @"Match Number";
+					break;
+				case 1:
+					mainText = [NSString stringWithFormat:@"Blue Score: %@", [match blueScore]];
+					break;
+				case 2:
+					mainText = [NSString stringWithFormat:@"Red Score: %@", [match redScore]];
+					break;
+			}
+			break;
+		case 1:
+			team = [teamsInMatch objectAtIndex:indexPath.row];
+			mainText = [NSString stringWithFormat:@"%@", [team name]];
+			subText = [NSString stringWithFormat:@"Team %@", [team number]];
+			break;
+	}
+	
+	[[cell textLabel] setText:mainText];
+	[[cell detailTextLabel] setText:subText];
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	switch (section)
+	{
+		case 0:
+			return @"Match Info";
+			break;
+		case 1:
+			return @"Teams";
+			break;
+		default:
+			return @"err";
+			break;
+	}
 }
 
 /*
@@ -124,22 +190,6 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
 }
 */
 

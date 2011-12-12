@@ -17,6 +17,7 @@
 }
 
 @property (nonatomic) BOOL hasFinished;
+@property (strong, nonatomic) NSMutableArray *selectedTeams;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

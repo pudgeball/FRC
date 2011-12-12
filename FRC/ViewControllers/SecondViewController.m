@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 #import "AddMatchViewController.h"
+#import "MatchDetailViewController.h"
 
 #import "Match.h"
 
@@ -103,9 +104,6 @@
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
 	
-	//Match *match = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-	//[[cell textLabel] setText:[NSString stringWithFormat:@"Match %@", [[match matchNumber] stringValue]]];
-	
 	[self configureCell:cell atIndexPath:indexPath];
 	
 	return cell;
@@ -119,7 +117,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	MatchDetailViewController *matchDetail = [[MatchDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	[matchDetail setMatch:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+	[[self navigationController] pushViewController:matchDetail animated:YES];
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -132,13 +132,12 @@
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     UITableView *tableView = self.tableView;
-    
+	
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
 		case NSFetchedResultsChangeUpdate:
-			NSLog(@"Update:");
 			[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
     }
@@ -181,7 +180,8 @@
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:nil cacheName:@"Master"];
-    [aFetchedResultsController setDelegate:self];
+    
+	aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
 	NSError *error = nil;

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class Match;
+
 @interface MatchDetailViewController : UITableViewController
+{
+	NSArray *teamsInMatch;
+}
+
+@property (strong, nonatomic) Match *match;
 
 @end

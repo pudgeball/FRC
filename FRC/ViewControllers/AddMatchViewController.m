@@ -82,17 +82,22 @@
 {
     [super viewDidAppear:animated];
 	
-	if (redTeamList.hasFinished)
+	if (redTeamList.hasFinished || blueTeamList.hasFinished)
 	{
 		NSLog(@"Did end teamList gracefully");
 		
 		[UIView animateWithDuration:30.0 animations:^{
-			UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+			UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
 			
 			cell.accessoryView.alpha = 0.0;
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 			cell.accessoryView.alpha = 1.0;
 		}];
+		
+		NSArray *selected = (redTeamList.hasFinished)?redTeamList.selectedTeams:blueTeamList.selectedTeams;
+		
+		for (Team *t in selected)
+			[newMatch addTeamsObject:t];
 	}
 }
 
@@ -114,17 +119,15 @@
 
 - (void)doneAdd
 {
+	NSError *error;
+	if (![[self managedObjectContext] save:&error])
+		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+	
 	[self closeWindow];
 }
 
 - (void)closeWindow
 {
-	//NSLog(@"Dump-Match: %@", newMatch);
-	
-	NSError *error;
-	if (![[self managedObjectContext] save:&error])
-		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-	
 	[self dismissModalViewControllerAnimated:YES];
 }
 

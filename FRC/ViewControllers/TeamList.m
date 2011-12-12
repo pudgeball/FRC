@@ -16,7 +16,7 @@
 @synthesize fetchedResultsController = __fetchedResultsController,
 				managedObjectContext = __managedObjectContext;
 
-@synthesize hasFinished;
+@synthesize hasFinished, selectedTeams;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
