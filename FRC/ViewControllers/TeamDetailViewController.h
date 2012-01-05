@@ -11,7 +11,9 @@
 #import "Team.h"
 
 @interface TeamDetailViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, NMCustomCell>
-
+{
+	NSArray *matches;
+}
 
 @property (nonatomic, retain) Team * team;
 @property (nonatomic, retain) NSArray * numbers;

@@ -8,6 +8,8 @@
 
 #import "MatchDetailViewController.h"
 
+#import "TeamDetailViewController.h"
+
 #import "Team.h"
 #import "Match.h"
 
@@ -60,7 +62,6 @@
     [super viewWillAppear:animated];
 	
 	teamsInMatch = [[NSArray alloc] initWithArray:[match teams].allObjects];
-	NSLog(@"Teams In Match: %@", teamsInMatch);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -114,7 +115,8 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
@@ -145,6 +147,7 @@
 			team = [teamsInMatch objectAtIndex:indexPath.row];
 			mainText = [NSString stringWithFormat:@"%@", [team name]];
 			subText = [NSString stringWithFormat:@"Team %@", [team number]];
+			[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 			break;
 	}
 	
@@ -197,13 +200,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+	if (indexPath.section == 1)
+	{
+		TeamDetailViewController *teamDetail = [[TeamDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		[teamDetail setTeam:[teamsInMatch objectAtIndex:indexPath.row]];
+		[[self navigationController] pushViewController:teamDetail animated:YES];
+	}
 }
 
 @end

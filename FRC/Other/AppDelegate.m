@@ -11,8 +11,6 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 
-#define BETA_TESTING NO
-
 @implementation AppDelegate
 
 @synthesize managedObjectContext = __managedObjectContext, 
@@ -114,9 +112,7 @@
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (__managedObjectContext != nil)
-    {
         return __managedObjectContext;
-    }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil)
@@ -134,11 +130,11 @@
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (__managedObjectModel != nil)
-    {
         return __managedObjectModel;
-    }
+	
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"FRCDataModel" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+	
     return __managedObjectModel;
 }
 
@@ -149,9 +145,7 @@
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (__persistentStoreCoordinator != nil)
-    {
         return __persistentStoreCoordinator;
-    }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FRCDataModel.sqlite"];
     
@@ -212,10 +206,5 @@
 {
 }
 */
-
-- (NSManagedObjectContext *)currentObjectContext
-{
-	return [self managedObjectContext];
-}
 
 @end

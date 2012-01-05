@@ -14,4 +14,6 @@
 	#import <CoreData/CoreData.h>
 
 	#import "TestFlight.h"
+
+	#define BETA_TESTING NO
 #endif

@@ -167,7 +167,7 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:[delegate currentObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:[delegate managedObjectContext]];
     [fetchRequest setEntity:entity];
 	
     // Edit the sort key as appropriate.
@@ -178,10 +178,12 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[delegate currentObjectContext] sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[delegate managedObjectContext] sectionNameKeyPath:nil cacheName:@"Master"];
     [aFetchedResultsController setDelegate:self];
     self.fetchedResultsController = aFetchedResultsController;
     
+	delegate = nil;
+	
 	NSError *error = nil;
 	if (![[self fetchedResultsController] performFetch:&error])
 	{

@@ -8,6 +8,10 @@
 
 #import "TeamDetailViewController.h"
 
+#import "Match.h"
+
+#import "MatchDetailViewController.h"
+
 @implementation TeamDetailViewController
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -47,6 +51,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
 	
 	numbers = [[NSArray alloc] initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",nil];
+	matches = [[NSArray alloc] initWithArray:[team match].allObjects];
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -92,7 +97,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -105,6 +110,9 @@
 			break;
 		case 1:
 			return 1;
+			break;
+		case 2:
+			return [matches count];
 			break;
 		default:
 			return 0;
@@ -149,6 +157,8 @@
 	
     // Configure the cell...
 	
+	Match *match;
+	
 	switch (indexPath.section)
 	{
 		case 0:
@@ -167,9 +177,32 @@
 		case 1:
 			return customCell;
 			break;
+		case 2:
+			[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+			match = [matches objectAtIndex:indexPath.row];
+			[[cell textLabel] setText:[NSString stringWithFormat:@"Match %@", [match matchNumber]]];
+			break;
 	}
 	
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	switch (section)
+	{
+		case 0:
+			return @"Team Info";
+			break;
+		case 1:
+			return @"Details";
+			break;
+		case 2:
+			return @"Matches";
+		default:
+			return @"err";
+			break;
+	}
 }
 
 #pragma mark - Table view delegate
@@ -183,6 +216,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+	
+	MatchDetailViewController *matchDetail = [[MatchDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	[matchDetail setMatch:[matches objectAtIndex:indexPath.row]];
+	[[self navigationController] pushViewController:matchDetail animated:YES];
+	
 }
 
 @end

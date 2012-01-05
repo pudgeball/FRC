@@ -44,19 +44,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-                                                                                   target:self 
-                                                                                   action:@selector(refresh)];
-    
+	// Do any additional setup after loading the view, typically from a nib.    
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
                                                                                target:self 
                                                                                action:@selector(addTeam)];
 	
 	self.navigationItem.rightBarButtonItem = addButton;
-	self.navigationItem.leftBarButtonItem = refreshButton;
-	
-	[[self fetchedResultsController] setDelegate:self];
 	
 	BOOL test = NO;
     
@@ -120,11 +113,6 @@
 	[addTeamVC setManagedObjectContext:[self managedObjectContext]];
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addTeamVC];
 	[[self navigationController] presentModalViewController:navController animated:YES];
-}
-
-- (void)refresh
-{
-	[[self tableView] reloadData];
 }
 
 #pragma mark - UITableViewDataSource
