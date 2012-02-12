@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE0A731F14E2BC7F005ACBCF /* SelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0A731E14E2BC7F005ACBCF /* SelectorViewController.m */; };
 		DE3966BE148C9B51009C1C6F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3966BC148C9B50009C1C6F /* libTestFlight.a */; };
 		DE3B1571148BBE430034B759 /* FRCDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE3B156F148BBE430034B759 /* FRCDataModel.xcdatamodeld */; };
 		DE3B1577148BBF590034B759 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B1576148BBF590034B759 /* CustomCell.m */; };
 		DE3B157A148BBF8E0034B759 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3B1579148BBF8E0034B759 /* CoreData.framework */; };
-		DE3B157D148BC03F0034B759 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B157C148BC03F0034B759 /* Match.m */; };
 		DE3B1580148BC0400034B759 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B157F148BC0400034B759 /* Team.m */; };
 		DE3B1583148BC0400034B759 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B1582148BC0400034B759 /* Details.m */; };
 		DE3B1587148BC0900034B759 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B1586148BC0900034B759 /* Rating.m */; };
@@ -32,19 +32,20 @@
 		DE72AF4F148BAC3100C22487 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF4E148BAC3100C22487 /* second@2x.png */; };
 		DE72AF52148BAC3100C22487 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF50148BAC3100C22487 /* FirstViewController.xib */; };
 		DE72AF55148BAC3100C22487 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE72AF53148BAC3100C22487 /* SecondViewController.xib */; };
+		DE7C39F614DB6B02003E1301 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7C39F514DB6B01003E1301 /* Match.m */; };
 		DE8C258D1493EE87004CA365 /* MatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */; };
 		DEE0548F148F944A0069C5A3 /* AddMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE0548E148F944A0069C5A3 /* AddMatchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE0A731D14E2BC7F005ACBCF /* SelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectorViewController.h; path = ViewControllers/SelectorViewController.h; sourceTree = "<group>"; };
+		DE0A731E14E2BC7F005ACBCF /* SelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectorViewController.m; path = ViewControllers/SelectorViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		DE3966BC148C9B50009C1C6F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = SDKs/libTestFlight.a; sourceTree = "<group>"; };
 		DE3966BD148C9B51009C1C6F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = SDKs/TestFlight.h; sourceTree = "<group>"; };
 		DE3B1570148BBE430034B759 /* FRCDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FRCDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DE3B1575148BBF590034B759 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Custom/CustomCell.h; sourceTree = "<group>"; };
 		DE3B1576148BBF590034B759 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Custom/CustomCell.m; sourceTree = "<group>"; wrapsLines = 0; };
 		DE3B1579148BBF8E0034B759 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		DE3B157B148BC03F0034B759 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Model/Match.h; sourceTree = "<group>"; };
-		DE3B157C148BC03F0034B759 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Model/Match.m; sourceTree = "<group>"; };
 		DE3B157E148BC0400034B759 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = Model/Team.h; sourceTree = "<group>"; };
 		DE3B157F148BC0400034B759 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Team.m; path = Model/Team.m; sourceTree = "<group>"; };
 		DE3B1581148BC0400034B759 /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Details.h; path = Model/Details.h; sourceTree = "<group>"; };
@@ -72,11 +73,13 @@
 		DE72AF45148BAC3100C22487 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = Images/first.png; sourceTree = "<group>"; };
 		DE72AF47148BAC3100C22487 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Images/first@2x.png"; sourceTree = "<group>"; };
 		DE72AF49148BAC3100C22487 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ViewControllers/SecondViewController.h; sourceTree = "<group>"; };
-		DE72AF4A148BAC3100C22487 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = ViewControllers/SecondViewController.m; sourceTree = "<group>"; };
+		DE72AF4A148BAC3100C22487 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = ViewControllers/SecondViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		DE72AF4C148BAC3100C22487 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = Images/second.png; sourceTree = "<group>"; };
 		DE72AF4E148BAC3100C22487 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
 		DE72AF51148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		DE72AF54148BAC3100C22487 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		DE7C39F414DB6B01003E1301 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Model/Match.h; sourceTree = "<group>"; };
+		DE7C39F514DB6B01003E1301 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Model/Match.m; sourceTree = "<group>"; };
 		DE8C258B1493EE87004CA365 /* MatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchDetailViewController.h; path = ViewControllers/MatchDetailViewController.h; sourceTree = "<group>"; };
 		DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchDetailViewController.m; path = ViewControllers/MatchDetailViewController.m; sourceTree = "<group>"; };
 		DEE0548D148F944A0069C5A3 /* AddMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddMatchViewController.h; path = ViewControllers/AddMatchViewController.h; sourceTree = "<group>"; };
@@ -99,6 +102,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE0A732114E2BC8A005ACBCF /* First Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DE72AF42148BAC3100C22487 /* FirstViewController.h */,
+				DE72AF43148BAC3100C22487 /* FirstViewController.m */,
+				DE3B1588148BC18D0034B759 /* AddTeamViewController.h */,
+				DE3B1589148BC18D0034B759 /* AddTeamViewController.m */,
+				DE3B158A148BC18D0034B759 /* TeamDetailViewController.h */,
+				DE3B158B148BC18D0034B759 /* TeamDetailViewController.m */,
+			);
+			name = "First Tab";
+			sourceTree = "<group>";
+		};
+		DE0A732214E2BC9D005ACBCF /* Second Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DE72AF49148BAC3100C22487 /* SecondViewController.h */,
+				DE72AF4A148BAC3100C22487 /* SecondViewController.m */,
+				DEE0548D148F944A0069C5A3 /* AddMatchViewController.h */,
+				DEE0548E148F944A0069C5A3 /* AddMatchViewController.m */,
+				DE67064A1490FA45008BE3F4 /* TeamList.h */,
+				DE67064B1490FA45008BE3F4 /* TeamList.m */,
+				DE8C258B1493EE87004CA365 /* MatchDetailViewController.h */,
+				DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */,
+			);
+			name = "Second Tab";
+			sourceTree = "<group>";
+		};
+		DE0A732314E2BDA4005ACBCF /* Third Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A731D14E2BC7F005ACBCF /* SelectorViewController.h */,
+				DE0A731E14E2BC7F005ACBCF /* SelectorViewController.m */,
+			);
+			name = "Third Tab";
+			sourceTree = "<group>";
+		};
 		DE3966BF148C9B55009C1C6F /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,8 +186,8 @@
 				DE3B1582148BC0400034B759 /* Details.m */,
 				DE3B157E148BC0400034B759 /* Team.h */,
 				DE3B157F148BC0400034B759 /* Team.m */,
-				DE3B157B148BC03F0034B759 /* Match.h */,
-				DE3B157C148BC03F0034B759 /* Match.m */,
+				DE7C39F414DB6B01003E1301 /* Match.h */,
+				DE7C39F514DB6B01003E1301 /* Match.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -188,20 +228,9 @@
 				DE3B1584148BC0460034B759 /* Model */,
 				DE72AF3F148BAC3100C22487 /* AppDelegate.h */,
 				DE72AF40148BAC3100C22487 /* AppDelegate.m */,
-				DE72AF42148BAC3100C22487 /* FirstViewController.h */,
-				DE72AF43148BAC3100C22487 /* FirstViewController.m */,
-				DE72AF49148BAC3100C22487 /* SecondViewController.h */,
-				DE72AF4A148BAC3100C22487 /* SecondViewController.m */,
-				DE3B1588148BC18D0034B759 /* AddTeamViewController.h */,
-				DE3B1589148BC18D0034B759 /* AddTeamViewController.m */,
-				DE3B158A148BC18D0034B759 /* TeamDetailViewController.h */,
-				DE3B158B148BC18D0034B759 /* TeamDetailViewController.m */,
-				DEE0548D148F944A0069C5A3 /* AddMatchViewController.h */,
-				DEE0548E148F944A0069C5A3 /* AddMatchViewController.m */,
-				DE67064A1490FA45008BE3F4 /* TeamList.h */,
-				DE67064B1490FA45008BE3F4 /* TeamList.m */,
-				DE8C258B1493EE87004CA365 /* MatchDetailViewController.h */,
-				DE8C258C1493EE87004CA365 /* MatchDetailViewController.m */,
+				DE0A732114E2BC8A005ACBCF /* First Tab */,
+				DE0A732214E2BC9D005ACBCF /* Second Tab */,
+				DE0A732314E2BDA4005ACBCF /* Third Tab */,
 				DE72AF37148BAC3100C22487 /* Supporting Files */,
 			);
 			path = FRC;
@@ -294,7 +323,6 @@
 				DE72AF4B148BAC3100C22487 /* SecondViewController.m in Sources */,
 				DE3B1571148BBE430034B759 /* FRCDataModel.xcdatamodeld in Sources */,
 				DE3B1577148BBF590034B759 /* CustomCell.m in Sources */,
-				DE3B157D148BC03F0034B759 /* Match.m in Sources */,
 				DE3B1580148BC0400034B759 /* Team.m in Sources */,
 				DE3B1583148BC0400034B759 /* Details.m in Sources */,
 				DE3B1587148BC0900034B759 /* Rating.m in Sources */,
@@ -303,6 +331,8 @@
 				DEE0548F148F944A0069C5A3 /* AddMatchViewController.m in Sources */,
 				DE67064C1490FA45008BE3F4 /* TeamList.m in Sources */,
 				DE8C258D1493EE87004CA365 /* MatchDetailViewController.m in Sources */,
+				DE7C39F614DB6B02003E1301 /* Match.m in Sources */,
+				DE0A731F14E2BC7F005ACBCF /* SelectorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

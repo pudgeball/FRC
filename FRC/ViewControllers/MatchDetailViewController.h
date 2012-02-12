@@ -12,7 +12,8 @@
 
 @interface MatchDetailViewController : UITableViewController
 {
-	NSArray *teamsInMatch;
+	NSArray *redTeams;
+	NSArray *blueTeams;
 }
 
 @property (strong, nonatomic) Match *match;

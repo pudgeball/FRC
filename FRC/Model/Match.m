@@ -2,8 +2,8 @@
 //  Match.m
 //  FRC
 //
-//  Created by Nick McGuire on 11-12-04.
-//  Copyright (c) 2011 RND Consulting. All rights reserved.
+//  Created by Nick McGuire on 12-02-02.
+//  Copyright (c) 2012 RND Consulting. All rights reserved.
 //
 
 #import "Match.h"
@@ -15,6 +15,7 @@
 @dynamic blueScore;
 @dynamic matchNumber;
 @dynamic redScore;
-@dynamic teams;
+@dynamic redTeams;
+@dynamic blueTeams;
 
 @end

@@ -65,7 +65,11 @@
 		newTeamTwo.name = @"testTeamTwo";
 		newTeamTwo.number = [NSNumber numberWithInt:4321];
 	
-		newMatch.teams = [NSSet setWithObjects:newTeam, newTeamTwo, nil];
+		//newMatch.teams = [NSSet setWithObjects:newTeam, newTeamTwo, nil];
+		
+		newMatch.redTeams = [NSSet setWithObject:newTeam];
+		newMatch.blueTeams = [NSSet setWithObject:newTeamTwo];
+		
 	
 		NSError *error;
 		if (![[self managedObjectContext] save:&error])

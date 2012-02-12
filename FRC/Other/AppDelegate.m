@@ -10,6 +10,7 @@
 
 #import "FirstViewController.h"
 #import "SecondViewController.h"
+#import "SelectorViewController.h"
 
 @implementation AppDelegate
 
@@ -35,11 +36,15 @@
 	SecondViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
 	viewController2.managedObjectContext = [self managedObjectContext];
 	
+	SelectorViewController *viewController3 = [[SelectorViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	viewController3.managedObjectContext = [self managedObjectContext];
+	
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController1];
 	UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+	UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
 	
 	self.tabBarController = [[UITabBarController alloc] init];
-	self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController, navController2, nil];
+	self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController, navController2, navController3, nil];
 	self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

@@ -86,18 +86,21 @@
 	{
 		NSLog(@"Did end teamList gracefully");
 		
-		[UIView animateWithDuration:30.0 animations:^{
-			UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+		if (blueTeamList.hasFinished)
+		{
+			newMatch.blueTeams = [NSSet setWithArray:blueTeamList.selectedTeams];
 			
-			cell.accessoryView.alpha = 0.0;
+			UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
-			cell.accessoryView.alpha = 1.0;
-		}];
+		}
 		
-		NSArray *selected = (redTeamList.hasFinished)?redTeamList.selectedTeams:blueTeamList.selectedTeams;
-		
-		for (Team *t in selected)
-			[newMatch addTeamsObject:t];
+		if (redTeamList.hasFinished)
+		{
+			newMatch.redTeams = [NSSet setWithArray:redTeamList.selectedTeams];
+			
+			UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		}
 	}
 }
 

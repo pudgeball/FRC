@@ -8,7 +8,8 @@
         <attribute name="blueScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="matchNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="redScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="match" inverseEntity="Team" syncable="YES"/>
+        <relationship name="blueTeams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="match" inverseEntity="Team" syncable="YES"/>
+        <relationship name="redTeams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="match" inverseEntity="Team" syncable="YES"/>
     </entity>
     <entity name="Questions" syncable="YES">
         <attribute name="autonomousRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -21,16 +22,16 @@
     <entity name="Team" representedClassName="Team">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="match" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" inverseName="teams" inverseEntity="Match" syncable="YES"/>
+        <relationship name="match" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" inverseName="blueTeams" inverseEntity="Match" syncable="YES"/>
         <relationship name="teamDetails" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Details" inverseName="team" inverseEntity="Details" syncable="YES"/>
         <relationship name="teamQuestions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Questions" inverseName="team" inverseEntity="Questions" syncable="YES"/>
         <relationship name="teamRating" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rating" inverseName="team" inverseEntity="Rating" syncable="YES"/>
     </entity>
     <elements>
         <element name="Details" positionX="-351" positionY="-171" width="128" height="75"/>
-        <element name="Match" positionX="-351" positionY="144" width="128" height="105"/>
+        <element name="Match" positionX="-560" positionY="-30" width="128" height="120"/>
         <element name="Questions" positionX="-153" positionY="-18" width="128" height="75"/>
-        <element name="Rating" positionX="-540" positionY="-18" width="128" height="75"/>
+        <element name="Rating" positionX="-362" positionY="180" width="128" height="75"/>
         <element name="Team" positionX="-353" positionY="-36" width="128" height="135"/>
     </elements>
 </model>

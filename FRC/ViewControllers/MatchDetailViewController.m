@@ -61,7 +61,9 @@
 {
     [super viewWillAppear:animated];
 	
-	teamsInMatch = [[NSArray alloc] initWithArray:[match teams].allObjects];
+	redTeams = [[NSArray alloc] initWithArray:match.redTeams.allObjects];
+	blueTeams = [[NSArray alloc] initWithArray:match.blueTeams.allObjects];
+	
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -90,7 +92,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -102,7 +104,10 @@
 			return 3;
 			break;
 		case 1:
-			return [teamsInMatch count];
+			return [blueTeams count];
+			break;
+		case 2:
+			return [redTeams count];
 			break;
 		default:
 			return 0;
@@ -144,7 +149,13 @@
 			}
 			break;
 		case 1:
-			team = [teamsInMatch objectAtIndex:indexPath.row];
+			team = [blueTeams objectAtIndex:indexPath.row];
+			mainText = [NSString stringWithFormat:@"%@", [team name]];
+			subText = [NSString stringWithFormat:@"Team %@", [team number]];
+			[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+			break;
+		case 2:
+			team = [redTeams objectAtIndex:indexPath.row];
 			mainText = [NSString stringWithFormat:@"%@", [team name]];
 			subText = [NSString stringWithFormat:@"Team %@", [team number]];
 			[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -165,7 +176,10 @@
 			return @"Match Info";
 			break;
 		case 1:
-			return @"Teams";
+			return @"Blue Teams";
+			break;
+		case 2:
+			return @"Red Teams";
 			break;
 		default:
 			return @"err";
@@ -203,7 +217,12 @@
 	if (indexPath.section == 1)
 	{
 		TeamDetailViewController *teamDetail = [[TeamDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		[teamDetail setTeam:[teamsInMatch objectAtIndex:indexPath.row]];
+		[teamDetail setTeam:[blueTeams objectAtIndex:indexPath.row]];
+		[[self navigationController] pushViewController:teamDetail animated:YES];
+	} else if (indexPath.section == 2)
+	{
+		TeamDetailViewController *teamDetail = [[TeamDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		[teamDetail setTeam:[redTeams objectAtIndex:indexPath.row]];
 		[[self navigationController] pushViewController:teamDetail animated:YES];
 	}
 }
